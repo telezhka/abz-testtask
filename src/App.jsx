@@ -1,4 +1,5 @@
 // import logo from './images/icons/logo.svg';
+import { Hero } from 'components/Hero/Hero';
 import './App.css';
 import { Header } from 'components/Header/Header';
 
@@ -20,7 +21,10 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <Header></Header>
+    <>
+      <Header></Header>
+      <Hero></Hero>
+    </>
   );
 }
 
