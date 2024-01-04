@@ -3,6 +3,7 @@ import { Hero } from 'partials/Hero/Hero';
 // import './App.css';
 import { Header } from 'partials/Header/Header';
 import { GetReqBlock } from 'partials/GetReqBlock/GetReqBlock';
+import { PostReqBlock } from 'partials/PostReqBlock/PostReqBlock';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Header></Header>
       <Hero></Hero>
       <GetReqBlock></GetReqBlock>
+      <PostReqBlock />
     </>
   );
 }
