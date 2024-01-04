@@ -1,7 +1,8 @@
 // import logo from './images/icons/logo.svg';
-import { Hero } from 'components/Hero/Hero';
-import './App.css';
-import { Header } from 'components/Header/Header';
+import { Hero } from 'partials/Hero/Hero';
+// import './App.css';
+import { Header } from 'partials/Header/Header';
+import { GetReqBlock } from 'partials/GetReqBlock/GetReqBlock';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
     <>
       <Header></Header>
       <Hero></Hero>
+      <GetReqBlock></GetReqBlock>
     </>
   );
 }

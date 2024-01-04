@@ -1,3 +1,5 @@
+import { UserList } from "components/UserItem/UserList";
+
 const fakeUsers = {
   users: [
     {
@@ -57,3 +59,16 @@ const fakeUsers = {
     },
   ],
 };
+
+
+export const GetReqBlock = () => {
+  return (
+    <section>
+      <div>
+        <h2>Working with GET request</h2>
+        <UserList users={fakeUsers.users}/>
+        <button><span>Show more</span></button>
+      </div>
+    </section>
+  )
+}
