@@ -1,0 +1,21 @@
+.container {
+  max-width: $breakpoint-s;
+  padding: 0 16px;
+  margin: 0 auto;
+  @media screen and (min-width: $breakpoint-s) {
+    max-width: $breakpoint-m;
+    padding: 0 32px;
+  }
+
+  @media screen and (min-width: $breakpoint-m) {
+    max-width: $breakpoint-l;
+    padding: 0 60px;
+  }
+  @media screen and (min-width: $breakpoint-l) {
+    max-width: $breakpoint-xl;
+    padding: 0;
+  }
+}
+.button {
+  @include button-style;
+}

@@ -25,7 +25,7 @@ export const PostReqBlock = () => {
 
   return (
     <section id="signup">
-      <div>
+      <div className="container post-container">
         <h2>Working with POST request</h2>
         <form onSubmit={handleSubmit}>
           <input

@@ -63,7 +63,7 @@ const fakeUsers = {
 export const GetReqBlock = () => {
   return (
     <section id="users">
-      <div>
+      <div className="container get-container">
         <h2>Working with GET request</h2>
         <UserList users={fakeUsers.users} />
         <button>

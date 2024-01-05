@@ -11,4 +11,10 @@
   &:hover {
     background-color: $btn-hover;
   }
+  &.disabled {
+    background-color: $btn-disabled;
+    color: rgba($secondary-text-color, 0.87);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 }
