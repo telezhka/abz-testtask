@@ -64,11 +64,13 @@ export const GetReqBlock = () => {
   return (
     <section id="users">
       <div className="container get-container">
-        <h2>Working with GET request</h2>
-        <UserList users={fakeUsers.users} />
-        <button>
-          <span>Show more</span>
-        </button>
+        <div className="get-text-container">
+          <h2>Working with GET request</h2>
+          <UserList users={fakeUsers.users} />
+          <button>
+            <span>Show more</span>
+          </button>
+        </div>
       </div>
     </section>
   );

@@ -1,0 +1,40 @@
+.hero-container {
+  height: 500px;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url(../../images/herobg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $secondary-text-color;
+  background-position: 50% 100%;
+  padding-top: 40px;
+  margin-bottom: 140px;
+  @media screen and (min-width: ($breakpoint-s + 21)) {
+    padding-top: 89px;
+  }
+  @media screen and (min-width: $breakpoint-m) {
+    height: 650px;
+    padding-top: 164px;
+  }
+}
+.hero-text-container {
+  max-width: 380px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-heading {
+  font-size: $heading-fsize;
+  line-height: $heading-line-height;
+  font-weight: 400;
+  font-style: normal;
+  padding-bottom: 21px;
+}
+.hero-text {
+  padding-bottom: 32px;
+}
+.hero-btn {
+  margin: 0 auto;
+}
