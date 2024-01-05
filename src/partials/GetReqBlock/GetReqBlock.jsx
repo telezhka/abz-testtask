@@ -57,6 +57,17 @@ const fakeUsers = {
       photo:
         'https://frontend-test-assignment-api.abz.agency/images/users/65967646cabb419577.jpg',
     },
+    {
+      id: 19577,
+      name: 'test',
+      email: 'tegdgdsg@fsaf.asaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      phone: '+380112223344',
+      position: 'Designer',
+      position_id: 4,
+      registration_timestamp: 1704359494,
+      photo:
+        'https://frontend-test-assignment-api.abz.agency/images/users/65967646cabb419577.jpg',
+    },
   ],
 };
 
@@ -65,9 +76,11 @@ export const GetReqBlock = () => {
     <section id="users">
       <div className="container get-container">
         <div className="get-text-container">
-          <h2>Working with GET request</h2>
+          <h2 className="block-heading get-block-heading">
+            Working with GET request
+          </h2>
           <UserList users={fakeUsers.users} />
-          <button>
+          <button className="button get-btn">
             <span>Show more</span>
           </button>
         </div>
