@@ -1,0 +1,14 @@
+@mixin button-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  min-width: 100px;
+  width: fit-content;
+  background-color: $primary-color;
+  color: $primary-text-color;
+  border-radius: 80px;
+  &:hover {
+    background-color: $btn-hover;
+  }
+}

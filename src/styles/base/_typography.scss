@@ -6,4 +6,7 @@ button {
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: $base-fsize;
+  line-height: $base-line-height;
+  color: $primary-text-color;
 }
