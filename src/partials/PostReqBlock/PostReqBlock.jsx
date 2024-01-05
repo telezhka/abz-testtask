@@ -1,20 +1,3 @@
-// export const PostReqBlock = () => {
-//   return (
-//     <section>
-//       <div>
-//         <h2>Working with POST request</h2>
-//         <form>
-//           <label></label>
-//           <input type="text" />
-//           <label></label>
-//           <input type="text" />
-//           <label></label>
-//           <input type="text" />
-//         </form>
-//       </div>
-//     </section>
-//   );
-// };
 import React, { useState } from 'react';
 
 export const PostReqBlock = () => {

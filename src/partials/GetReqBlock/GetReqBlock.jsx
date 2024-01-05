@@ -1,4 +1,4 @@
-import { UserList } from 'components/UserItem/UserList';
+import { UserList } from 'components/UserList/UserList';
 
 const fakeUsers = {
   users: [
