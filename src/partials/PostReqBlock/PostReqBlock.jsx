@@ -26,14 +26,17 @@ export const PostReqBlock = () => {
   return (
     <section id="signup">
       <div className="container post-container">
-        <h2>Working with POST request</h2>
-        <form onSubmit={handleSubmit}>
+        <h2 className="block-heading post-block-heading">
+          Working with POST request
+        </h2>
+        <form onSubmit={handleSubmit} className="form">
           <input
             type="text"
             name="name"
             placeholder="Your name"
             value={formData.name}
             onChange={handleInputChange}
+            className="field-input"
           />
           <input
             type="email"
@@ -41,6 +44,7 @@ export const PostReqBlock = () => {
             placeholder="Email"
             value={formData.email}
             onChange={handleInputChange}
+            className="field-input"
           />
           <input
             type="tel"
@@ -48,62 +52,76 @@ export const PostReqBlock = () => {
             placeholder="+38 (XXX) XXX - XX - XX"
             value={formData.phone}
             onChange={handleInputChange}
+            className="last field-input"
           />
-          <div>
-            Select your position
-            <label>
-              <input
-                type="radio"
-                name="position"
-                value="Frontend developer"
-                checked={formData.position === 'Frontend developer'}
-                onChange={handleInputChange}
-              />
-              Frontend developer
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="position"
-                value="Backend developer"
-                checked={formData.position === 'Backend developer'}
-                onChange={handleInputChange}
-              />
-              Backend developer
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="position"
-                value="Designer"
-                checked={formData.position === 'Designer'}
-                onChange={handleInputChange}
-              />
-              Designer
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="position"
-                value="QA"
-                checked={formData.position === 'QA'}
-                onChange={handleInputChange}
-              />
-              QA
-            </label>
+          <div className="position-block">
+            <p>Select your position</p>
+            <ul>
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="position"
+                    value="Frontend developer"
+                    checked={formData.position === 'Frontend developer'}
+                    onChange={handleInputChange}
+                  />
+                  <span>Frontend developer</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="position"
+                    value="Backend developer"
+                    checked={formData.position === 'Backend developer'}
+                    onChange={handleInputChange}
+                  />
+                  <span>Backend developer</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="position"
+                    value="Designer"
+                    checked={formData.position === 'Designer'}
+                    onChange={handleInputChange}
+                  />
+                  <span>Designer</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="position"
+                    value="QA"
+                    checked={formData.position === 'QA'}
+                    onChange={handleInputChange}
+                  />
+                  <span>QA</span>
+                </label>
+              </li>
+            </ul>
           </div>
-          <div>
-            <label htmlFor="photo-upload">
+          <div className="upload">
+            <label htmlFor="photo-upload" className="upload-label">
               Upload your photo
-              <input
-                id="photo-upload"
-                type="file"
-                name="photo"
-                onChange={handleFileChange}
-              />
             </label>
+            <input
+              id="photo-upload"
+              type="file"
+              name="photo"
+              onChange={handleFileChange}
+              className="upload-input"
+            />
           </div>
-          <button type="submit">Sign up</button>
+          <button type="submit" className="button get-btn">
+            Sign up
+          </button>
         </form>
       </div>
     </section>

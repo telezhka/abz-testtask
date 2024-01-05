@@ -1,0 +1,100 @@
+.post-container {
+  text-align: center;
+  padding-bottom: 100px;
+}
+.post-block-heading {
+  margin-bottom: 50px;
+}
+.form {
+  max-width: 380px;
+  margin: 0 auto;
+}
+.field-input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+  border: 1px solid #d0cfcf;
+  color: $input-color;
+  font-size: $base-fsize;
+  line-height: $base-line-height;
+}
+.last.field-input {
+  margin-bottom: 43px;
+}
+.position-block {
+  text-align: left;
+  margin-bottom: 47px;
+  p {
+    margin-bottom: 11px;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    li {
+      label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+  }
+}
+input[type='radio'] {
+  appearance: none;
+  -moz-appearance: none;
+  height: 18px;
+  width: 19px;
+  border: 1px solid #d0cfcf;
+  border-radius: 50%;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+input[type='radio']:checked {
+  background-color: transparent;
+  border-color: $secondary-color;
+}
+
+input[type='radio']:before {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+}
+
+input[type='radio']:checked:before {
+  background-color: $secondary-color;
+}
+
+.upload {
+  margin-bottom: 50px;
+}
+.upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .upload-label {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    color: $input-color;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: $base-fsize;
+    line-height: $base-line-height;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #d0cfcf;
+  }
+
+  .upload-input {
+    display: none;
+  }
+}
