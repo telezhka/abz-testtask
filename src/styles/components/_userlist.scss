@@ -44,7 +44,8 @@
     width: 330px;
   }
 }
-.user-info > li > p {
+.user-info > li > p,
+.user-name {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

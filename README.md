@@ -1,1 +1,1 @@
-abz agency test task v0.2
+abz agency test task

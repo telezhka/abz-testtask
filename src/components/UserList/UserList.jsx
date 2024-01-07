@@ -7,17 +7,24 @@ export const UserList = ({ users }) => {
     <ul className="users-list">
       {users.map(user => (
         <li key={user.id} className="user-item">
-          <img src={user.photo} alt={user.name} className="user-pic" />
-          <p className="user-name">{user.name}</p>
+          <img
+            src={user.photo}
+            alt={user.name}
+            className="user-pic"
+            title={user.name}
+          />
+          <p className="user-name" title={user.name}>
+            {user.name}
+          </p>
           <ul className="user-info">
             <li>
-              <p>{user.position}</p>
+              <p title={user.position}>{user.position}</p>
             </li>
             <li>
-              <p>{user.email}</p>
+              <p title={user.email}>{user.email}</p>
             </li>
             <li>
-              <p>{user.phone}</p>
+              <p title={user.phone}>{user.phone}</p>
             </li>
           </ul>
         </li>
