@@ -16,7 +16,6 @@ export const GetReqBlock = () => {
 
   const onShowMore = () => {
     setPage(page + 1);
-    console.log(info);
   };
 
   return (

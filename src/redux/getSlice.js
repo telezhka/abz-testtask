@@ -33,7 +33,6 @@ const contactsSlice = createSlice({
     builder
       .addCase(fetchContacts.pending, handlePending)
       .addCase(fetchContacts.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.isLoading = false;
         state.error = null;
         if (action.payload && action.payload.users) {
