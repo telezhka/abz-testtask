@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchToken } from './operations';
+import { fetchToken } from '../operations';
 
 const handlePending = state => {
   state.isLoading = true;

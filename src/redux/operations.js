@@ -4,6 +4,7 @@ import axios from 'axios';
 axios.defaults.baseURL =
   'https://frontend-test-assignment-api.abz.agency/api/v1';
 
+//base func for fetching contacts from first load and pagination
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async ({ page }, thunkAPI) => {
@@ -17,6 +18,7 @@ export const fetchContacts = createAsyncThunk(
   }
 );
 
+//fetch after form submit
 export const fetchNewContacts = createAsyncThunk(
   'contacts/fetchNew',
   async (_, thunkAPI) => {
@@ -30,6 +32,7 @@ export const fetchNewContacts = createAsyncThunk(
   }
 );
 
+//fetch token on first page load
 export const fetchToken = createAsyncThunk(
   'token/fetchToken',
   async (_, thunkAPI) => {
@@ -43,11 +46,11 @@ export const fetchToken = createAsyncThunk(
   }
 );
 
+//fetch all avilable positions on first page load
 export const fetchPositions = createAsyncThunk(
-  'token/fetchToken',
+  'positions/fetchPositions',
   async (_, thunkAPI) => {
     try {
-      console.log('cringe111');
       const response = await axios.get(`/positions`);
       // console.log(response.data);
       return response.data;
@@ -57,6 +60,7 @@ export const fetchPositions = createAsyncThunk(
   }
 );
 
+//posting our new user
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async ({ formData, token }, thunkAPI) => {

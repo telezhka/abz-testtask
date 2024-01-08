@@ -6,11 +6,20 @@ import './styles/main.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchPositions, fetchToken } from './redux/operations';
-import { getError, getIsLoading } from './redux/selectors';
+import {
+  getError,
+  getIsLoadingToken,
+  getIsLoadingContacts,
+  getIsLoadingPositions,
+} from './redux/selectors';
+import { Loader } from 'components/Loader/Loader';
 
 function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
+  const isLoadingToken = useSelector(getIsLoadingToken);
+  const isLoadingContacts = useSelector(getIsLoadingContacts);
+  const isLoadingPositions = useSelector(getIsLoadingPositions);
+  const isLoading = isLoadingContacts && isLoadingPositions && isLoadingToken;
   const error = useSelector(getError);
 
   useEffect(() => {
@@ -19,9 +28,9 @@ function App() {
   }, [dispatch]);
 
   return isLoading ? (
-    <p>Page is loading</p>
+    <Loader />
   ) : error ? (
-    <p>Oops! We fucked up...</p>
+    <p>Oops! It`s an error... {error}</p>
   ) : (
     <>
       <Header />

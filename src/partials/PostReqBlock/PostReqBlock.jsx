@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPositions, getSentSuccess, getToken } from '../../redux/selectors';
 import { PositionsList } from 'components/PositionsList/PositionsList';
@@ -10,6 +10,8 @@ export const PostReqBlock = () => {
   const positions = useSelector(getPositions);
   const sentSuccess = useSelector(getSentSuccess);
   const dispatch = useDispatch();
+
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -26,9 +28,35 @@ export const PostReqBlock = () => {
     photo: true,
   });
 
+  const validateForm = useCallback(() => {
+    const isNameValid = formData.name.length >= 2 && formData.name.length <= 60;
+    const isEmailValid =
+      /^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/.test(
+        formData.email
+      ) &&
+      formData.email.length >= 2 &&
+      formData.email.length <= 100;
+    const isPhoneValid = /^(\+380[0-9]{9})$/.test(formData.phone);
+    const isPhotoValid = formData.photo !== null;
+    setInputValidity({
+      name: isNameValid,
+      email: isEmailValid,
+      phone: isPhoneValid,
+      photo: isPhotoValid,
+    });
+    setIsFormValid(isNameValid && isEmailValid && isPhoneValid && isPhotoValid);
+  }, [formData]);
+
+  useEffect(() => {
+    const runValidation = async () => {
+      validateForm();
+    };
+
+    runValidation();
+  }, [validateForm]);
+
   const handleSubmit = async event => {
     event.preventDefault();
-
     try {
       await dispatch(addContact({ formData, token }));
       dispatch(fetchNewContacts());
@@ -74,9 +102,6 @@ export const PostReqBlock = () => {
                 required
                 minLength={2}
                 maxLength={60}
-                onInvalid={() =>
-                  setInputValidity({ ...inputValidity, name: false })
-                }
               />
               <input
                 type="email"
@@ -90,9 +115,6 @@ export const PostReqBlock = () => {
                 required
                 minLength={2}
                 maxLength={100}
-                onInvalid={() =>
-                  setInputValidity({ ...inputValidity, email: false })
-                }
               />
 
               <input
@@ -108,9 +130,6 @@ export const PostReqBlock = () => {
                 }
                 pattern="^(\+380[0-9]{9})$"
                 required
-                onInvalid={() =>
-                  setInputValidity({ ...inputValidity, phone: false })
-                }
               />
               <div className="position-block">
                 <p>Select your position</p>
@@ -143,12 +162,15 @@ export const PostReqBlock = () => {
                   }
                   required
                   accept=".jpg, .jpeg"
-                  onInvalid={() =>
-                    setInputValidity({ ...inputValidity, photo: false })
-                  }
                 />
               </div>
-              <button type="submit" className="button get-btn">
+              <button
+                type="submit"
+                className={
+                  isFormValid ? 'button get-btn' : 'button get-btn disabled'
+                }
+                disabled={!isFormValid}
+              >
                 Sign up
               </button>
             </form>

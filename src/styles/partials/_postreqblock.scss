@@ -14,14 +14,13 @@
   padding: 13px 16px;
   margin-bottom: 50px;
   border-radius: 4px;
+  background-color: transparent;
   border: 1px solid #d0cfcf;
   color: $input-color;
   font-size: $base-fsize;
   line-height: $base-line-height;
 }
-.invalid {
-  border: 2px solid $form-invalid;
-}
+
 .last.field-input {
   margin-bottom: 43px;
 }
@@ -100,4 +99,10 @@ input[type='radio']:checked:before {
   .upload-input {
     display: none;
   }
+}
+.invalid {
+  border: 2px solid $form-invalid;
+}
+.disabled {
+  background-color: $btn-disabled;
 }
