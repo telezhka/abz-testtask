@@ -4,12 +4,7 @@ export const getToken = state => state.token.token;
 
 export const getPositions = state => state.positions.positions;
 
-// export const getFilter = state => state.filter;
-
-// export const isContactNameUnique = (state, name) => {
-//   const contacts = state.contacts.items;
-//   return !contacts.some(contact => contact.name === name);
-// };
+export const getSentSuccess = state => state.contacts.send_result;
 
 export const getIsLoading = state => state.token.isLoading;
 
