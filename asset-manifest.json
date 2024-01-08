@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/abz-testtask/static/css/main.4eed8fae.css",
-    "main.js": "/abz-testtask/static/js/main.740a6d72.js",
+    "main.css": "/abz-testtask/static/css/main.f6c13b29.css",
+    "main.js": "/abz-testtask/static/js/main.e648e62e.js",
     "static/js/787.ee1132c5.chunk.js": "/abz-testtask/static/js/787.ee1132c5.chunk.js",
     "static/media/herobg075.jpg": "/abz-testtask/static/media/herobg075.1af01756b10f61d16c38.jpg",
+    "static/media/registration-success.svg": "/abz-testtask/static/media/registration-success.147ff01aeb0caaca03a3a94cfe9c0ce6.svg",
     "static/media/logo.svg": "/abz-testtask/static/media/logo.56bda82bd882001476c0cd3c0dd1e432.svg",
     "static/media/photo-cover.svg": "/abz-testtask/static/media/photo-cover.fb98cf13a87225efe558669bdc541ac7.svg",
     "index.html": "/abz-testtask/index.html",
-    "main.4eed8fae.css.map": "/abz-testtask/static/css/main.4eed8fae.css.map",
-    "main.740a6d72.js.map": "/abz-testtask/static/js/main.740a6d72.js.map",
+    "main.f6c13b29.css.map": "/abz-testtask/static/css/main.f6c13b29.css.map",
+    "main.e648e62e.js.map": "/abz-testtask/static/js/main.e648e62e.js.map",
     "787.ee1132c5.chunk.js.map": "/abz-testtask/static/js/787.ee1132c5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4eed8fae.css",
-    "static/js/main.740a6d72.js"
+    "static/css/main.f6c13b29.css",
+    "static/js/main.e648e62e.js"
   ]
 }
