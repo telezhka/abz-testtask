@@ -16,6 +16,10 @@
     padding-top: 89px;
   }
   @media screen and (min-width: $breakpoint-m) {
+    height: 500px;
+    padding-top: 90px;
+  }
+  @media screen and (min-width: $breakpoint-l) {
     height: 650px;
     padding-top: 164px;
   }

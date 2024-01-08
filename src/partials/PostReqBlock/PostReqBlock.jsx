@@ -19,8 +19,16 @@ export const PostReqBlock = () => {
     photo: null,
   });
 
+  const [inputValidity, setInputValidity] = useState({
+    name: true,
+    email: true,
+    phone: true,
+    photo: true,
+  });
+
   const handleSubmit = async event => {
     event.preventDefault();
+
     try {
       await dispatch(addContact({ formData, token }));
       dispatch(fetchNewContacts());
@@ -60,10 +68,15 @@ export const PostReqBlock = () => {
                 placeholder="Your name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="field-input"
+                className={
+                  inputValidity.name ? 'field-input' : 'field-input invalid'
+                }
                 required
                 minLength={2}
                 maxLength={60}
+                onInvalid={() =>
+                  setInputValidity({ ...inputValidity, name: false })
+                }
               />
               <input
                 type="email"
@@ -71,21 +84,33 @@ export const PostReqBlock = () => {
                 placeholder="Email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="field-input"
+                className={
+                  inputValidity.email ? 'field-input' : 'field-input invalid'
+                }
                 required
                 minLength={2}
                 maxLength={100}
+                onInvalid={() =>
+                  setInputValidity({ ...inputValidity, email: false })
+                }
               />
 
               <input
                 type="tel"
                 name="phone"
-                placeholder="+380 (XX) XXX - XX - XX"
+                placeholder="Phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="last field-input"
+                className={
+                  inputValidity.phone
+                    ? 'last field-input'
+                    : 'last field-input invalid'
+                }
                 pattern="^(\+380[0-9]{9})$"
                 required
+                onInvalid={() =>
+                  setInputValidity({ ...inputValidity, phone: false })
+                }
               />
               <div className="position-block">
                 <p>Select your position</p>
@@ -96,7 +121,14 @@ export const PostReqBlock = () => {
                 />
               </div>
               <div className="upload">
-                <label htmlFor="photo-upload" className="upload-label">
+                <label
+                  htmlFor="photo-upload"
+                  className={
+                    inputValidity.photo
+                      ? 'upload-label'
+                      : 'upload-label invalid'
+                  }
+                >
                   Upload your photo
                 </label>
                 <input
@@ -104,8 +136,16 @@ export const PostReqBlock = () => {
                   type="file"
                   name="photo"
                   onChange={handleFileChange}
-                  className="upload-input"
+                  className={
+                    inputValidity.photo
+                      ? 'upload-input'
+                      : 'upload-input invalid'
+                  }
                   required
+                  accept=".jpg, .jpeg"
+                  onInvalid={() =>
+                    setInputValidity({ ...inputValidity, photo: false })
+                  }
                 />
               </div>
               <button type="submit" className="button get-btn">

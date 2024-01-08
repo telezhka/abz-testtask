@@ -1,7 +1,11 @@
+body {
+  background-color: $bg-color;
+}
 .container {
   max-width: $breakpoint-m;
   padding: 0 16px;
   margin: 0 auto;
+
   @media screen and (min-width: $breakpoint-m) {
     padding: 0 32px;
   }
