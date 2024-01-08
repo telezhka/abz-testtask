@@ -1,6 +1,6 @@
 import { UserList } from 'components/UserList/UserList';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from '../../redux/selectors';
+import { getContacts, getUsersError } from '../../redux/selectors';
 import { useEffect, useState } from 'react';
 import { fetchContacts } from '../../redux/operations';
 
@@ -13,6 +13,7 @@ export const GetReqBlock = () => {
   }, [dispatch, page]);
 
   const info = useSelector(getContacts);
+  const err = useSelector(getUsersError);
 
   const onShowMore = () => {
     setPage(page + 1);
@@ -26,7 +27,8 @@ export const GetReqBlock = () => {
             Working with GET request
           </h2>
           <UserList users={info.items} />
-          {info && info.links && info.links.next_url ? (
+
+          {err ? null : info && info.links && info.links.next_url ? (
             <button className="button get-btn" onClick={onShowMore}>
               <span>Show more</span>
             </button>

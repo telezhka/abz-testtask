@@ -1,5 +1,7 @@
 export const getContacts = state => state.contacts;
 
+export const getToken = state => state.token.token;
+
 // export const getFilter = state => state.filter;
 
 // export const isContactNameUnique = (state, name) => {
@@ -7,6 +9,8 @@ export const getContacts = state => state.contacts;
 //   return !contacts.some(contact => contact.name === name);
 // };
 
-export const getIsLoading = state => state.contacts.isLoading;
+export const getIsLoading = state => state.token.isLoading;
 
-export const getError = state => state.contacts.error;
+export const getError = state => state.token.error;
+
+export const getUsersError = state => state.contacts.error;

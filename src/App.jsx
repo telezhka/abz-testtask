@@ -3,9 +3,25 @@ import { Header } from 'partials/Header/Header';
 import { GetReqBlock } from 'partials/GetReqBlock/GetReqBlock';
 import { PostReqBlock } from 'partials/PostReqBlock/PostReqBlock';
 import './styles/main.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchToken } from './redux/operations';
+import { getError, getIsLoading } from './redux/selectors';
 
 function App() {
-  return (
+  const dispatch = useDispatch();
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
+
+  useEffect(() => {
+    dispatch(fetchToken());
+  }, [dispatch]);
+
+  return isLoading ? (
+    <p>Page is loading</p>
+  ) : error ? (
+    <p>Oops! We fucked up...</p>
+  ) : (
     <>
       <Header />
       <Hero />
