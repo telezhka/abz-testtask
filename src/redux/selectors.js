@@ -2,6 +2,8 @@ export const getContacts = state => state.contacts;
 
 export const getToken = state => state.token.token;
 
+export const getPositions = state => state.positions.positions;
+
 // export const getFilter = state => state.filter;
 
 // export const isContactNameUnique = (state, name) => {

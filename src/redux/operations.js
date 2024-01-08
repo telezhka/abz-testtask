@@ -30,6 +30,19 @@ export const fetchToken = createAsyncThunk(
   }
 );
 
+export const fetchPositions = createAsyncThunk(
+  'token/fetchToken',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/positions`);
+      // console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async ({ name, number }, thunkAPI) => {

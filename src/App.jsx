@@ -5,7 +5,7 @@ import { PostReqBlock } from 'partials/PostReqBlock/PostReqBlock';
 import './styles/main.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchToken } from './redux/operations';
+import { fetchPositions, fetchToken } from './redux/operations';
 import { getError, getIsLoading } from './redux/selectors';
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchToken());
+    dispatch(fetchPositions());
   }, [dispatch]);
 
   return isLoading ? (
