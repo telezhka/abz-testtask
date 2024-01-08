@@ -17,6 +17,19 @@ export const fetchContacts = createAsyncThunk(
   }
 );
 
+export const fetchNewContacts = createAsyncThunk(
+  'contacts/fetchNew',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/users?page=1&count=6`);
+      //   console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 export const fetchToken = createAsyncThunk(
   'token/fetchToken',
   async (_, thunkAPI) => {
@@ -34,6 +47,7 @@ export const fetchPositions = createAsyncThunk(
   'token/fetchToken',
   async (_, thunkAPI) => {
     try {
+      console.log('cringe111');
       const response = await axios.get(`/positions`);
       // console.log(response.data);
       return response.data;
@@ -45,22 +59,15 @@ export const fetchPositions = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async ({ name, number }, thunkAPI) => {
+  async ({ formData, token }, thunkAPI) => {
     try {
-      console.log(name);
-      const response = await axios.post('/contacts', { name, number });
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
-
-export const deleteContact = createAsyncThunk(
-  'contacts/deleteContact',
-  async (contactsId, thunkAPI) => {
-    try {
-      const response = await axios.delete(`/contacts/${contactsId}`);
+      const response = await axios.post('/users', formData, {
+        headers: {
+          Token: token,
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      // console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

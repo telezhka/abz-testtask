@@ -1,8 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchContacts,
-  // addContact, deleteContact
-} from './operations';
+import { fetchContacts, addContact, fetchNewContacts } from './operations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -24,6 +21,7 @@ const initialState = {
     next_url: null,
     prev_url: null,
   },
+  send_result: {},
 };
 
 const contactsSlice = createSlice({
@@ -49,34 +47,25 @@ const contactsSlice = createSlice({
           state.links = action.payload.links;
         }
       })
-      .addCase(fetchContacts.rejected, handleRejected);
-    //   .addCase(addTask.pending, handlePending)
-    //   .addCase(addTask.fulfilled, (state, action) => {
-    //     state.isLoading = false;
-    //     state.error = null;
-    //     state.items.push(action.payload);
-    //   })
-    //   .addCase(addTask.rejected, handleRejected)
-    //   .addCase(deleteTask.pending, handlePending)
-    //   .addCase(deleteTask.fulfilled, (state, action) => {
-    //     state.isLoading = false;
-    //     state.error = null;
-    //     const index = state.items.findIndex(
-    //       task => task.id === action.payload.id
-    //     );
-    //     state.items.splice(index, 1);
-    //   })
-    //   .addCase(deleteTask.rejected, handleRejected)
-    //   .addCase(toggleCompleted.pending, handlePending)
-    //   .addCase(toggleCompleted.fulfilled, (state, action) => {
-    //     state.isLoading = false;
-    //     state.error = null;
-    //     const index = state.items.findIndex(
-    //       task => task.id === action.payload.id
-    //     );
-    //     state.items.splice(index, 1, action.payload);
-    //   })
-    //   .addCase(toggleCompleted.rejected, handleRejected);
+      .addCase(fetchContacts.rejected, handleRejected)
+      .addCase(addContact.pending, handlePending)
+      .addCase(addContact.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.send_result = action.payload;
+      })
+      .addCase(addContact.rejected, handleRejected)
+      .addCase(fetchNewContacts.pending, handlePending)
+      .addCase(fetchNewContacts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.items = action.payload.users;
+        state.totalPages = action.payload.total_pages;
+        state.totalUsers = action.payload.total_users;
+        state.page = action.payload.page;
+        state.links = action.payload.links;
+      })
+      .addCase(fetchNewContacts.rejected, handleRejected);
   },
 });
 

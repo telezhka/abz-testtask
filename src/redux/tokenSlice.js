@@ -25,7 +25,12 @@ const tokenSlice = createSlice({
       .addCase(fetchToken.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.token = action.payload.token;
+
+        if (action.payload.token === state.token.token) {
+          return;
+        } else {
+          state.token = action.payload.token;
+        }
       })
       .addCase(fetchToken.rejected, handleRejected);
   },

@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getPositions, getToken } from '../../redux/selectors';
 import { PositionsList } from 'components/PositionsList/PositionsList';
+import { addContact, fetchNewContacts } from '../../redux/operations';
 
 export const PostReqBlock = () => {
   const token = useSelector(getToken);
   const positions = useSelector(getPositions);
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
-    token: token,
     name: '',
     email: '',
     phone: '',
-    position: '',
     position_id: '',
     photo: null,
   });
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    // Тут ви можете обробляти дані форми, наприклад, відправляти POST запит
-    console.log(formData);
+    try {
+      await dispatch(addContact({ formData, token }));
+      dispatch(fetchNewContacts());
+    } catch (error) {
+      console.error('Error in sent contact occured:', error.message);
+    }
   };
 
   const handleInputChange = event => {
